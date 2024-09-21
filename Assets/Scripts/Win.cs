@@ -19,7 +19,6 @@ public class Win : MonoBehaviour
 
             player.disableMovement();
 
-
             canvas.GetComponentInChildren<Timer>().gameObject.SetActive(false);
         }
     }
