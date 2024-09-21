@@ -10,10 +10,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] Collider2D groundedCollider;
     [SerializeField] Collider2D circleCollider;
+    bool canMove = true;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && canMove)
         {
             if (groundedCollider.IsTouchingLayers())
             {
@@ -25,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if ( !circleCollider.IsTouchingLayers() &&
-            (Mathf.Sign(rb.velocity.x) != Mathf.Sign(Input.GetAxis("Horizontal")) || Mathf.Abs(rb.velocity.x) < maxHorizontalSpeed)) { 
+            (Mathf.Sign(rb.velocity.x) != Mathf.Sign(Input.GetAxis("Horizontal")) || Mathf.Abs(rb.velocity.x) < maxHorizontalSpeed
+            && canMove)) { 
             rb.AddForce(new Vector2(horizontalAcceleration * Input.GetAxis("Horizontal"), 0));
         }
         //else
@@ -46,11 +48,8 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(impulse, ForceMode2D.Impulse);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void disableMovement()
     {
-        if (collision.gameObject.tag == "Damaging")
-        {
-            print("You are dead");
-        }
+        canMove = false;
     }
 }
