@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Collider2D groundedCollider;
     [SerializeField] Collider2D circleCollider;
     [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
     public bool canMove = true;
     bool playerNotFalling;
     float timeNotFalling;
+    public float speedModifier;
 
     private void Update()
     {
@@ -54,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Falling", false);
         }
+
+        if((Input.GetAxis("Horizontal")) < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     private void FixedUpdate()
@@ -82,6 +93,13 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y > -50)
         {
             rb.AddForce(new Vector2(0, -50 - rb.velocity.y));
+        }
+
+        if(speedModifier != 0 && 
+            !(speedModifier > 0 && rb.velocity.magnitude > 100) && 
+            !(speedModifier < 0 && rb.velocity.magnitude < 3))
+        {
+            rb.AddForce(rb.velocity.normalized * speedModifier, ForceMode2D.Impulse);
         }
     }
 

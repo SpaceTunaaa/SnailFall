@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Boost : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float speedModifier;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.GetComponent<PlayerMovement>())
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().speedModifier = speedModifier;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerMovement>())
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().speedModifier = 0;
+        }
     }
 }

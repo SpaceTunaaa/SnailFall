@@ -110,6 +110,7 @@ MonoBehaviour:
   groundedCollider: {fileID: 1051780205922447901}
   circleCollider: {fileID: 4009055891589029059}
   animator: {fileID: 7321073153472204631}
+  spriteRenderer: {fileID: 8324350958441586318}
   canMove: 1
 --- !u!58 &4009055891589029059
 CircleCollider2D:
