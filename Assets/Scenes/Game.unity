@@ -154,7 +154,7 @@ MonoBehaviour:
   rooms:
   - {fileID: 8610312346510631559, guid: 1a675f6ae7f13f94b960b003944d90f6, type: 3}
   - {fileID: 7956127445661334763, guid: 76b20c49b1348514690fc89f96a89f91, type: 3}
-  numberOfRooms: 5
+  numberOfRooms: 50
   roomHeight: 40
 --- !u!4 &97338391
 Transform:
@@ -258,51 +258,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4673686034958169333, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
   m_PrefabInstance: {fileID: 7333360591077759217}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &880585937
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880585931}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.023277268, y: -0.41355467}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6131593, y: 0.17289066}
-  m_EdgeRadius: 0
 --- !u!1 &1936851732
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,21 +477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5438441568869443124, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5438441568869443124, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
-      propertyPath: groundedCollider
-      value: 
-      objectReference: {fileID: 880585937}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4673686034958169333, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 880585937}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
