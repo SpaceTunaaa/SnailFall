@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3200959527817370564}
-  horizontalAcceleration: 10
-  maxHorizontalSpeed: 10
+  horizontalAcceleration: 50
+  maxHorizontalSpeed: 20
 --- !u!58 &4009055891589029059
 CircleCollider2D:
   m_ObjectHideFlags: 0
