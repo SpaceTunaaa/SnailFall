@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject winScreen;
+    [SerializeField] Transform canvas;
+    [SerializeField] Timer timer;
+    [SerializeField] PlayerMovement player;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.tag == "Win" && player.canMove)
+        {
+            Instantiate(winScreen, canvas);
+
+            canvas.GetComponentInChildren<Scoreboard>().setScore(timer.getScore());
+
+            player.disableMovement();
+
+
+            canvas.GetComponentInChildren<Timer>().gameObject.SetActive(false);
+        }
     }
 }

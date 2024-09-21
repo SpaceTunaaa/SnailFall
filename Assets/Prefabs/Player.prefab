@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3200959527817370564}
   - component: {fileID: 1051780205922447901}
   - component: {fileID: 2355058414366554242}
+  - component: {fileID: 8694499755661182648}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -228,3 +229,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 2810414087915803645, guid: 7c5abc34d5874da4a82989463d9bf213, type: 3}
   canvas: {fileID: 0}
+--- !u!114 &8694499755661182648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673686034958169333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb3c9309bf4260499544a741e14ae5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScreen: {fileID: 4864175290147645954, guid: 41ddf146e8caa5446b4a80d424cc162d, type: 3}
+  canvas: {fileID: 0}
+  timer: {fileID: 0}
+  player: {fileID: 5438441568869443124}

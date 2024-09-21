@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] Collider2D groundedCollider;
     [SerializeField] Collider2D circleCollider;
-    bool canMove = true;
+    public bool canMove = true;
 
     private void Update()
     {

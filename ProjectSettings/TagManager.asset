@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Damaging
+  - Win
   layers:
   - Default
   - TransparentFX

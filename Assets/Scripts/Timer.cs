@@ -11,9 +11,14 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
+        tmp.text = getScore();
+    }
+
+    public string getScore()
+    {
         string temp = time.ToString();
         if (temp.IndexOf(".") + 3 < temp.Length)
             temp = temp[..(temp.IndexOf(".") + 3)];
-        tmp.text = temp;
+        return temp;
     }
 }

@@ -7,6 +7,7 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] List<GameObject> rooms = new List<GameObject>();
     [SerializeField] int numberOfRooms;
     [SerializeField] float roomHeight;
+    [SerializeField] GameObject roomBottom;
 
     private void Start()
     {
@@ -14,5 +15,6 @@ public class RoomSpawner : MonoBehaviour
         {
             Instantiate(rooms[Random.Range(0, rooms.Count)], new Vector2(0, roomHeight * -i), Quaternion.identity);
         }
+        Instantiate(roomBottom, new Vector2(0, roomHeight * -numberOfRooms -roomHeight/2), Quaternion.identity);
     }
 }

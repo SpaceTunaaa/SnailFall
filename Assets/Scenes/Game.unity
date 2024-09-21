@@ -154,8 +154,9 @@ MonoBehaviour:
   rooms:
   - {fileID: 8610312346510631559, guid: 1a675f6ae7f13f94b960b003944d90f6, type: 3}
   - {fileID: 7956127445661334763, guid: 76b20c49b1348514690fc89f96a89f91, type: 3}
-  numberOfRooms: 50
+  numberOfRooms: 5
   roomHeight: 40
+  roomBottom: {fileID: 6700830385454493252, guid: 3595094a21c7f9e4290d987eaebefbdb, type: 3}
 --- !u!4 &97338391
 Transform:
   m_ObjectHideFlags: 0
@@ -799,6 +800,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8694499755661182648, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 382332326}
+    - target: {fileID: 8694499755661182648, guid: cc1c5c3f38d7467429a32601c7c1608a, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1640179933}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
