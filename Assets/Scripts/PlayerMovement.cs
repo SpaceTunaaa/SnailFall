@@ -8,12 +8,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float horizontalAcceleration;
     [SerializeField] float maxHorizontalSpeed;
     [SerializeField] float jumpForce;
+    [SerializeField] Collider2D groundedCollider;
 
     private void Update()
     {
-        if (Input.GetButtonDown("Space"))
+        if (Input.GetButtonDown("Jump"))
         {
-            AddImpulse(jumpForce * Vector2.up);
+            if (groundedCollider.IsTouchingLayers())
+            {
+                AddImpulse(Vector2.up * jumpForce);
+            }
         }
     }
 
