@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vanishing : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer spr;
+    SpriteRenderer spr;
 
     private void Start()
     {

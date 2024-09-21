@@ -7,6 +7,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float horizontalAcceleration;
     [SerializeField] float maxHorizontalSpeed;
+    [SerializeField] float jumpForce;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Space"))
+        {
+            AddImpulse(jumpForce * Vector2.up);
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -17,5 +26,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Sign(Input.GetAxis("Horizontal")) * maxHorizontalSpeed, rb.velocity.y);
         }
+    }
+
+    public void AddImpulse(Vector2 impulse)
+    {
+        rb.AddForce(impulse, ForceMode2D.Impulse);
     }
 }
