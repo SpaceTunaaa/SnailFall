@@ -7,6 +7,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] GameObject player;
     void Update()
     {
-        transform.position = new Vector3(0, player.transform.position.y, -10);
+        transform.position = new Vector3(0, player.transform.position.y -6, -10);
     }
 }

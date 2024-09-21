@@ -108,6 +108,7 @@ MonoBehaviour:
   jumpForce: 10
   groundedCollider: {fileID: 1051780205922447901}
   circleCollider: {fileID: 4009055891589029059}
+  canMove: 1
 --- !u!58 &4009055891589029059
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1051780205922447901
 BoxCollider2D:

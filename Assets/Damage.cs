@@ -15,7 +15,10 @@ public class Damage : MonoBehaviour
 
             GetComponent<PlayerMovement>().disableMovement();
 
-            canvas.GetComponentInChildren<Timer>().enabled = false;
+            if (canvas.GetComponentInChildren<Timer>())
+            {
+                canvas.GetComponentInChildren<Timer>().gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Collider2D groundedCollider;
     [SerializeField] Collider2D circleCollider;
     public bool canMove = true;
+    bool playerNotFalling;
+    float timeNotFalling;
 
     private void Update()
     {
@@ -21,6 +24,27 @@ public class PlayerMovement : MonoBehaviour
                 AddImpulse(Vector2.up * jumpForce);
             }
         }
+
+        playerNotFalling = rb.velocity.sqrMagnitude < 0.1f;
+
+        if (playerNotFalling )
+        {
+            timeNotFalling += Time.deltaTime;
+        }
+        else
+        {
+            timeNotFalling = 0;
+        }
+
+        if (timeNotFalling > 3)
+        {
+            AddImpulse(Vector2.up * jumpForce);
+        }
+
+        if (timeNotFalling > 5)
+        {
+            Debug.LogError("Player stayed still for too long");
+        }
     }
 
     private void FixedUpdate()
@@ -30,12 +54,21 @@ public class PlayerMovement : MonoBehaviour
             && canMove)) { 
             rb.AddForce(new Vector2(horizontalAcceleration * Input.GetAxis("Horizontal"), 0));
         }
-        //else
-        //{
-        //    Vector2 targetVelocity = new Vector2(Mathf.Sign(Input.GetAxis("Horizontal")) * maxHorizontalSpeed, rb.velocity.y);
-        //    Vector2 deltaVelocity = targetVelocity - rb.velocity;
-        //    rb.AddForce(deltaVelocity);
-        //}
+        else if(circleCollider.IsTouchingLayers() && canMove && playerNotFalling)
+        {
+            Collider2D[] collider2Ds = new Collider2D[0];
+
+            circleCollider.GetContacts(collider2Ds);
+
+            float sum = 0;
+
+            for (int i = 0; i < collider2Ds.Length; i++)
+            {
+                sum += collider2Ds[i].transform.position.x - transform.position.x;
+            }
+
+            rb.AddForce(new Vector2(horizontalAcceleration * (sum > 0 ? -1 : 1), -5));
+        }
 
         if (rb.velocity.y > -50)
         {
