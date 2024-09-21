@@ -11,7 +11,7 @@ public class Trampoline : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
-            collision.gameObject.GetComponent<PlayerMovement>().AddImpulse(direction * magnitude);
+            collision.gameObject.GetComponent<PlayerMovement>().AddImpulse(direction.normalized * magnitude);
         }
     }
 }
