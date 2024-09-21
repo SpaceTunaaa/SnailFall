@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] Collider2D groundedCollider;
     [SerializeField] Collider2D circleCollider;
+    [SerializeField] Animator animator;
     public bool canMove = true;
     bool playerNotFalling;
     float timeNotFalling;
@@ -44,6 +45,14 @@ public class PlayerMovement : MonoBehaviour
         if (timeNotFalling > 5)
         {
             Debug.LogError("Player stayed still for too long");
+        }
+
+        if (rb.velocity.y < 0 && canMove)
+        {
+            animator.SetBool("Falling", true);
+        }else if (canMove)
+        {
+            animator.SetBool("Falling", false);
         }
     }
 
@@ -84,5 +93,7 @@ public class PlayerMovement : MonoBehaviour
     public void disableMovement()
     {
         canMove = false;
+
+        animator.Play("Death");
     }
 }
