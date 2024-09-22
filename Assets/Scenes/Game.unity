@@ -154,9 +154,10 @@ MonoBehaviour:
   rooms:
   - {fileID: 8610312346510631559, guid: 1a675f6ae7f13f94b960b003944d90f6, type: 3}
   - {fileID: 7956127445661334763, guid: 76b20c49b1348514690fc89f96a89f91, type: 3}
-  numberOfRooms: 100
+  numberOfRooms: 10
   roomHeight: 40
   roomBottom: {fileID: 6700830385454493252, guid: 3595094a21c7f9e4290d987eaebefbdb, type: 3}
+  roomTop: {fileID: 7956127445661334763, guid: 273054f05b25c9d4ba36d5fc8d023003, type: 3}
 --- !u!4 &97338391
 Transform:
   m_ObjectHideFlags: 0
