@@ -92,11 +92,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.y > -25 && speedModifier >= 0)
         {
-            rb.AddForce(new Vector2(0, -25 - rb.velocity.y));
+            rb.AddForce(new Vector2(0, -60 - rb.velocity.y));
         }
         else if(speedModifier < 0)
         {
-            rb.AddForce(new Vector2(0, (rb.velocity.y-3) * speedModifier));
+            rb.AddForce(new Vector2(0, (rb.velocity.y-5) * speedModifier));
         }
 
         if(speedModifier > 0 && !(rb.velocity.magnitude > 100))
