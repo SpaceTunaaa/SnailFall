@@ -752,7 +752,7 @@ MonoBehaviour:
   - I believe in you! Try again
   textMeshPro: {fileID: 2472802665552162054}
   yourScore: {fileID: 6876277571008384621}
-  tooFastTime: 15
+  tooFastTime: 45
   time: 0
 --- !u!1 &4167862056273206946
 GameObject:
