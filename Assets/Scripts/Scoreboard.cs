@@ -46,19 +46,20 @@ public class Scoreboard : MonoBehaviour
 
         string username = inputField.text;
 
-        dl.AddScore(username, (int)(time*100));
+        dl.AddScore(username.ToUpper(), (int)(time*100));
     }
 
     public static string formatTime(float time)
     {
         string @decimal = time.ToString();
-        if (@decimal.IndexOf(".") + 2 < @decimal.Length)
+        int decimalPlace = @decimal.IndexOf(".");
+        if (decimalPlace + 2 < @decimal.Length && decimalPlace >= 0)
         {
-            @decimal = @decimal.Substring(@decimal.IndexOf("."), 3);
+            @decimal = @decimal.Substring(decimalPlace, 3);
         }
-        else if (@decimal.IndexOf(".") >= 0)
+        else if (decimalPlace >= 0)
         {
-            @decimal = @decimal.Substring(@decimal.IndexOf("."));
+            @decimal = @decimal.Substring(decimalPlace);
 
             while (@decimal.Length < 3)
             {
@@ -72,6 +73,6 @@ public class Scoreboard : MonoBehaviour
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
         
-        return (minutes != 0 ? minutes.ToString() + ":" : "") + seconds.ToString() + @decimal;
+        return (minutes != 0 ? minutes.ToString() + ":" : "") + (seconds.ToString().Length == 1 && minutes > 0 ? "0" : "") + seconds.ToString() + @decimal;
     }
 }

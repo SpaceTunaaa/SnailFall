@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(0, player.transform.position.y -6, -10);
 
         Vector2 deltaPos = (Vector2)transform.position - previousPos;
-        background.transform.position -= (Vector3)deltaPos / 2;
+        background.transform.position -= (Vector3)deltaPos / (transform.position.y <= -22.5 ? 2 : 1);
         previousPos = transform.position;
 
         if(background.transform.position.y - transform.position.y > 80)
