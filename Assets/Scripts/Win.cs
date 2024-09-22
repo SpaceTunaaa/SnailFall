@@ -21,6 +21,8 @@ public class Win : MonoBehaviour
             player.enabled = false;
 
             canvas.GetComponentInChildren<Timer>().gameObject.SetActive(false);
+
+            this.enabled = false;
         }
     }
 }
