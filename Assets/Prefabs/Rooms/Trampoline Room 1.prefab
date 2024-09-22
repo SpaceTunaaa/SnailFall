@@ -10764,7 +10764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7709989579400922007, guid: bba6c687386a1fe4fb3e3160c64bbb68, type: 3}
       propertyPath: magnitude
-      value: 75
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 7709989579400922007, guid: bba6c687386a1fe4fb3e3160c64bbb68, type: 3}
       propertyPath: direction.x
