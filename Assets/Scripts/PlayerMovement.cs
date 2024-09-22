@@ -90,9 +90,9 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(horizontalAcceleration * (sum > 0 ? -1 : 1), -5));
         }
 
-        if (rb.velocity.y > -40 && speedModifier >= 0)
+        if (rb.velocity.y > -25 && speedModifier >= 0)
         {
-            rb.AddForce(new Vector2(0, -40 - rb.velocity.y));
+            rb.AddForce(new Vector2(0, -25 - rb.velocity.y));
         }
         else if(speedModifier < 0)
         {
