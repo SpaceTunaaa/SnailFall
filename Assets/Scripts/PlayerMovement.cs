@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && canMove)
+        if (Input.GetButtonDown("Jump") && canMove && speedModifier >= 0)
         {
             if (groundedCollider.IsTouchingLayers())
             {
@@ -76,13 +76,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(circleCollider.IsTouchingLayers() && canMove && playerNotFalling)
         {
-            Collider2D[] collider2Ds = new Collider2D[0];
+            Collider2D[] collider2Ds = new Collider2D[100];
 
-            circleCollider.GetContacts(collider2Ds);
+            int num = circleCollider.GetContacts(collider2Ds);
 
             float sum = 0;
 
-            for (int i = 0; i < collider2Ds.Length; i++)
+            for (int i = 0; i < num; i++)
             {
                 sum += collider2Ds[i].transform.position.x - transform.position.x;
             }
@@ -90,14 +90,16 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(horizontalAcceleration * (sum > 0 ? -1 : 1), -5));
         }
 
-        if (rb.velocity.y > -40)
+        if (rb.velocity.y > -40 && speedModifier >= 0)
         {
             rb.AddForce(new Vector2(0, -40 - rb.velocity.y));
         }
+        else if(speedModifier < 0)
+        {
+            rb.AddForce(new Vector2(0, (rb.velocity.y-3) * speedModifier));
+        }
 
-        if(speedModifier != 0 && 
-            !(speedModifier > 0 && rb.velocity.magnitude > 100) && 
-            !(speedModifier < 0 && rb.velocity.magnitude < 3))
+        if(speedModifier > 0 && !(rb.velocity.magnitude > 100))
         {
             rb.AddForce(rb.velocity.normalized * speedModifier, ForceMode2D.Impulse);
         }
