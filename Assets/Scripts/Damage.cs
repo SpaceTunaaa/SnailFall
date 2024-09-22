@@ -13,6 +13,7 @@ public class Damage : MonoBehaviour
         {
             Instantiate(gameOverScreen, canvas);
 
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             GetComponent<PlayerMovement>().disableMovement();
 
             if (canvas.GetComponentInChildren<Timer>())

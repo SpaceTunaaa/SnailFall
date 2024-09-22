@@ -16,6 +16,7 @@ public class Win : MonoBehaviour
             Instantiate(winScreen, canvas);
 
             canvas.GetComponentInChildren<Scoreboard>().setScore(timer.getScore());
+            canvas.GetComponentInChildren<EndScreenText>().time = (timer.getScore());
 
             player.enabled = false;
 

@@ -56,7 +56,7 @@ public class Scoreboard : MonoBehaviour
         {
             @decimal = @decimal.Substring(@decimal.IndexOf("."), 3);
         }
-        else
+        else if (@decimal.IndexOf(".") >= 0)
         {
             @decimal = @decimal.Substring(@decimal.IndexOf("."));
 
@@ -64,6 +64,10 @@ public class Scoreboard : MonoBehaviour
             {
                 @decimal += "0";
             }
+        }
+        else
+        {
+            @decimal = ".00";
         }
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
